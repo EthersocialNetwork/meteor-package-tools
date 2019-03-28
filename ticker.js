@@ -9,8 +9,9 @@ EthTools.ticker.start = function(options) {
   if (!options.currencies) {
     options.currencies = ["BTC", "USD", "EUR"];
   }
+  var ticker = options.ticker || "ETH";
   var url =
-    "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=" +
+    `https://min-api.cryptocompare.com/data/price?fsym=${ticker}&tsyms=` +
     options.currencies.join(",");
   if (options.extraParams) {
     url += "&extraParams=" + options.extraParams;
